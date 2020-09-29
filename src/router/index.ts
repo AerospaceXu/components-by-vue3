@@ -12,7 +12,9 @@ const router = createRouter({
   history,
   routes: [
     {
-      path: '/components', component: ComponentsComponent, children: [
+      path: '/components',
+      component: ComponentsComponent,
+      children: [
         { path: 'switch', component: SwitchShowComponent },
         { path: 'button', component: ButtonComponent },
         { path: 'dialog', component: DialogComponent },
