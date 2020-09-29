@@ -8,7 +8,6 @@
 import { ref } from 'vue';
 
 export default {
-  name: 'switch-component',
   setup() {
     const active = ref(false);
     const setActive = () => {
@@ -37,6 +36,8 @@ $padding-content: $width - $padding - $fill-radius;
   height: $height;
 
   margin: 30px auto;
+  cursor: pointer;
+
   transition: 125ms ease-in;
 
   border-radius: $height / 2;
