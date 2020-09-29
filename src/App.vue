@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import NavBarComponent from './components/nav-bar-component.vue';
+import NavBarComponent from './components/nav-bar/nav-bar-component.vue';
 
 export default {
   components: { NavBarComponent },
