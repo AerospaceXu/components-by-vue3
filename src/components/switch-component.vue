@@ -45,7 +45,7 @@ $padding-content: $width - $padding - $fill-radius;
   background: rgba(0, 0, 0, 0.32);
 
   &.active {
-    animation: switch-outside-animation-on ease 175ms;
+    animation: switch-outside-animation-on ease 125ms;
     background: $active-color;
   }
 

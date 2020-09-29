@@ -11,7 +11,7 @@
         组件
       </router-link>
       <transition name="fade">
-        <components-list v-if="menuVisible" />
+        <components-list-component v-if="menuVisible" />
       </transition>
     </li>
     <li>｜</li>
@@ -22,12 +22,11 @@
 </template>
 
 <script lang="ts">
-import ComponentsList from '../components/components-list.vue';
+import ComponentsListComponent from './components-list-component.vue';
 import { ref } from 'vue';
 
 export default {
-  name: 'nav-bar',
-  components: { ComponentsList },
+  components: { ComponentsListComponent },
   setup() {
     const menuVisible = ref(false);
     const setMenuVisible = (isVisible: boolean) => {

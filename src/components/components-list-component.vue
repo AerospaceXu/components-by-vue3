@@ -17,7 +17,9 @@
 
 <script lang="ts">
 export default {
-  name: 'components-list',
+  setup() {
+    return {};
+  },
 };
 </script>
 
