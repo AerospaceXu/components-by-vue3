@@ -1,20 +1,22 @@
 <template>
-  <button :class="['switch-background', active?'active':'']" @click="setActive">
+  <button
+      :class="['switch-background', active?'active':'']"
+      @click="setActive"
+  >
     <span :class="['switch-fill', active?'active':'']"></span>
   </button>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
-
 export default {
-  setup() {
-    const active = ref(false);
+  props: {
+    active: Boolean,
+  },
+  setup(props, context) {
     const setActive = () => {
-      active.value = !active.value;
+      context.emit('update:active', !props.active);
     };
     return {
-      active,
       setActive,
     };
   },
