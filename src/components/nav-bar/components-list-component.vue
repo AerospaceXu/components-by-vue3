@@ -32,11 +32,15 @@ export default {
   width: 120px;
 
   padding: 8px 16px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.32);
 
   > li {
     margin: 4px;
+
+    &:hover {
+      background: darken(#ffffff, 25%);
+    }
   }
 }
 </style>

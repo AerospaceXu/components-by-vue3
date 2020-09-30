@@ -1,30 +1,57 @@
 <template>
   <button
-      :class="['switch-background', active?'active':'']"
+      :class="['switch-background', active ? 'active' : '']"
+      :style="switchStyle"
       @click="setActive"
   >
-    <span :class="['switch-fill', active?'active':'']"></span>
+    <img
+        v-if="mode === 'tick' && active"
+        alt=""
+        class="tick"
+        src="../assets/icons/active.svg"
+    />
+    <span :class="['switch-fill', active ? 'active' : '']"></span>
   </button>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent, computed } from 'vue';
+
+export default defineComponent({
   props: {
     active: Boolean,
+    type: {
+      validator(value: string): boolean {
+        return ['normal', 'tiny'].indexOf(value) !== -1;
+      },
+      required: false,
+    },
+    mode: {
+      validator(value: string): boolean {
+        return ['tick'].indexOf(value) !== -1;
+      },
+      required: false,
+    },
   },
   setup(props, context) {
     const setActive = () => {
       context.emit('update:active', !props.active);
     };
+    const switchStyle = computed(() => {
+      return {
+        transform: `scale(${props.type === 'tiny' ? 0.68 : 1})`,
+      };
+    });
     return {
       setActive,
+      switchStyle,
     };
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
-$active-color: #007AFF;
+$active-color: #007aff;
 $height: 22px;
 $width: 44px;
 $padding: 2px;
@@ -46,6 +73,15 @@ $padding-content: $width - $padding - $fill-radius;
 
   background: rgba(0, 0, 0, 0.32);
 
+  > .tick {
+    width: $fill-radius;
+    height: $fill-radius;
+
+    position: absolute;
+    left: $padding + 2px;
+    top: $padding;
+  }
+
   &.active {
     animation: switch-outside-animation-on ease 125ms;
     background: $active-color;
@@ -63,7 +99,7 @@ $padding-content: $width - $padding - $fill-radius;
     transition: ease 175ms;
     border-radius: $fill-radius / 2;
 
-    background: #FFFFFF;
+    background: #ffffff;
 
     &.active {
       right: 2px;
@@ -79,7 +115,7 @@ $padding-content: $width - $padding - $fill-radius;
     right: $padding-content;
     width: $fill-radius;
   }
-  38.2% {
+  62% {
     left: $padding + 4px;
     right: $padding-content - 4px;
     width: $fill-radius + 8px;
@@ -96,7 +132,8 @@ $padding-content: $width - $padding - $fill-radius;
     box-shadow: none;
   }
   50% {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 6px 16px rgba(0, 0, 0, 0.08), 0 9px 28px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 6px 16px rgba(0, 0, 0, 0.08),
+    0 9px 28px rgba(0, 0, 0, 0.05);
   }
   100% {
     box-shadow: none;

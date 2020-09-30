@@ -4,8 +4,18 @@
   padding: 0;
 }
 
-*::before, *::after {
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ul > li {
@@ -17,11 +27,11 @@ button {
   outline: none;
 }
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  margin-top: 60px;
-  text-align: center;
-  color: #2C3E50;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+img {
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

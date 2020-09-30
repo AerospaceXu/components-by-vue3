@@ -3,13 +3,11 @@
     <li>导航栏</li>
     <li>｜</li>
     <li
-        @click="setMenuVisible(false)"
-        @mouseenter="setMenuVisible(true)"
-        @mouseleave="setMenuVisible(false)"
+      @click="setMenuVisible(false)"
+      @mouseenter="setMenuVisible(true)"
+      @mouseleave="setMenuVisible(false)"
     >
-      <router-link to="/components">
-        组件
-      </router-link>
+      <router-link to="/components"> 组件</router-link>
       <transition name="fade">
         <components-list-component v-if="menuVisible" />
       </transition>
@@ -52,13 +50,29 @@ export default {
 }
 
 .nav-bar {
+  margin-top: 88px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
 
   > li {
+    &:first-child {
+      font-weight: 400;
+      font-size: 14px;
+    }
+
     position: relative;
+    font-size: 20px;
+    font-weight: 600;
+
+    > a {
+      &.router-active,
+      &:hover {
+        color: #364f6b;
+      }
+    }
   }
 }
 </style>
-
