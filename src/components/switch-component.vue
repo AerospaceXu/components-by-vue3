@@ -1,14 +1,14 @@
 <template>
   <button
-      :class="['switch-background', active ? 'active' : '']"
-      :style="switchStyle"
-      @click="setActive"
+    :class="['switch-background', active ? 'active' : '']"
+    :style="switchStyle"
+    @click="setActive"
   >
     <img
-        v-if="mode === 'tick' && active"
-        alt=""
-        class="tick"
-        src="../assets/icons/active.svg"
+      v-if="mode === 'tick' && active"
+      alt=""
+      class="tick"
+      src="../assets/icons/active.svg"
     />
     <span :class="['switch-fill', active ? 'active' : '']"></span>
   </button>
@@ -24,13 +24,13 @@ export default defineComponent({
       validator(value: string): boolean {
         return ['normal', 'tiny'].indexOf(value) !== -1;
       },
-      required: false,
+      default: 'normal',
     },
     mode: {
       validator(value: string): boolean {
-        return ['tick'].indexOf(value) !== -1;
+        return ['normal', 'tick'].indexOf(value) !== -1;
       },
-      required: false,
+      default: 'normal',
     },
   },
   setup(props, context) {
@@ -133,7 +133,7 @@ $padding-content: $width - $padding - $fill-radius;
   }
   50% {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 6px 16px rgba(0, 0, 0, 0.08),
-    0 9px 28px rgba(0, 0, 0, 0.05);
+      0 9px 28px rgba(0, 0, 0, 0.05);
   }
   100% {
     box-shadow: none;
