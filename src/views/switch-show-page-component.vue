@@ -9,17 +9,24 @@
   <div class="switch-description">
     <ul>
       <li>
-        <strong><code>active: boolean</code>属性</strong>：switch 组件的开关值。
+        <span>
+          <strong><code>active: boolean</code>属性</strong>：switch
+          组件的开关值。
+        </span>
       </li>
       <li>
-        <strong><code>type?: 'normal' | 'tiny'</code>属性</strong>：可选，switch
-        的按钮大小，正常大小与小号，默认为 normal。
+        <span>
+          <strong><code>type?: 'normal' | 'tiny'</code>属性</strong
+          >：可选，switch 的按钮大小，正常大小与小号，默认为 normal。
+        </span>
         <switch-component v-model:active="activeTypeTiny" type="tiny" />
         <switch-component v-model:active="activeTypeNormal" type="normal" />
       </li>
       <li>
-        <strong><code>mode?: 'tick'</code>属性：</strong>可选，switch
-        按钮的模式。
+        <span>
+          <strong><code>mode?: 'tick'</code>属性：</strong>可选，switch
+          按钮的模式。
+        </span>
         <switch-component v-model:active="activeMode" mode="tick" />
       </li>
     </ul>
@@ -61,6 +68,7 @@ export default {
       text-align: left;
       margin: 8px 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
     }
   }
