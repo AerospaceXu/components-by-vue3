@@ -52,6 +52,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 $active-color: #007aff;
+
 $height: 22px;
 $width: 44px;
 $padding: 2px;
@@ -64,8 +65,8 @@ $padding-content: $width - $padding - $fill-radius;
   width: $width;
   height: $height;
 
-  margin: 30px auto;
   cursor: pointer;
+  transform-origin: left center;
 
   transition: 125ms ease-in;
 
