@@ -2,15 +2,8 @@
   <ul class="nav-bar">
     <li>导航栏</li>
     <li>｜</li>
-    <li
-      @click="setMenuVisible(false)"
-      @mouseenter="setMenuVisible(true)"
-      @mouseleave="setMenuVisible(false)"
-    >
-      <router-link to="/components"> 组件</router-link>
-      <transition name="fade">
-        <components-list-component v-if="menuVisible" />
-      </transition>
+    <li>
+      <router-link to="/components">组件</router-link>
     </li>
     <li>｜</li>
     <li>
@@ -20,37 +13,14 @@
 </template>
 
 <script lang="ts">
-import ComponentsListComponent from './components-list-component.vue';
-import { ref } from 'vue';
-
 export default {
-  components: { ComponentsListComponent },
-  setup() {
-    const menuVisible = ref(false);
-    const setMenuVisible = (isVisible: boolean) => {
-      menuVisible.value = isVisible;
-    };
-    return {
-      menuVisible,
-      setMenuVisible,
-    };
-  },
+  setup() {},
 };
 </script>
 
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.225s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
 .nav-bar {
-  margin-top: 88px;
+  margin-top: 44px;
   margin-bottom: 40px;
   display: flex;
   justify-content: center;
@@ -58,14 +28,23 @@ export default {
   width: 100%;
 
   > li {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+
     &:first-child {
       font-weight: 400;
       font-size: 14px;
     }
 
-    position: relative;
-    font-size: 20px;
-    font-weight: 600;
+    > .show-menu-btn {
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+    }
 
     > a {
       &.router-active,
