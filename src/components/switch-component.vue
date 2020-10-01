@@ -64,6 +64,7 @@ $padding-content: $width - $padding - $fill-radius;
   position: relative;
   width: $width;
   height: $height;
+  margin: 4px;
 
   cursor: pointer;
   transform-origin: left center;
