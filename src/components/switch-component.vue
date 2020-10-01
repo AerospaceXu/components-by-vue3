@@ -2,7 +2,7 @@
   <button
     :class="['switch-background', active ? 'active' : '']"
     :style="switchStyle"
-    @click="setActive"
+    @click.prevent="setActive"
   >
     <img
       v-if="mode === 'tick' && active"
@@ -66,14 +66,15 @@ $padding-content: $width - $padding - $fill-radius;
   height: $height;
   margin: 4px;
 
-  cursor: pointer;
   transform-origin: left center;
-
   transition: 125ms ease-in;
 
   border-radius: $height / 2;
 
   background: rgba(0, 0, 0, 0.32);
+
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   > .tick {
     width: $fill-radius;
