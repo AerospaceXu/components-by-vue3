@@ -1,7 +1,8 @@
-import { UserConfig } from 'vite';
+import { BuildConfig } from 'vite';
 
-const config: UserConfig = {
+const config: BuildConfig = {
   base: './',
+  assetsDir: 'assets',
 };
 
 export default config;
