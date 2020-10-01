@@ -16,7 +16,9 @@
     </div>
   </div>
   <br />
-  <router-view />
+  <div class="components-pages">
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts">
@@ -55,5 +57,11 @@ h2 {
   > li {
     list-style-type: decimal;
   }
+}
+
+.components-pages {
+  width: 88vw;
+  max-width: 728px;
+  margin: 40px auto;
 }
 </style>
