@@ -40,6 +40,16 @@
           按钮的模式。
         </p>
       </li>
+      <li>
+        <components-block-component>
+          <switch-component v-model:active="activeDisable" disable />
+          <switch-component v-model:active="activeDisable" mode="tick" disable />
+        </components-block-component><switch-component v-model:active="activeDisable" />
+        <p>
+          <strong><code>disable?: boolean</code>属性：</strong>可选，switch
+          按钮是否可选。
+        </p>
+      </li>
     </ul>
   </div>
 </template>
@@ -59,11 +69,13 @@ export default {
     const activeTypeTiny = ref<boolean>(false);
     const activeTypeNormal = ref<boolean>(false);
     const activeMode = ref<boolean>(true);
+    const activeDisable = ref<boolean>(false);
     return {
       activeComponent,
       activeMode,
       activeTypeTiny,
       activeTypeNormal,
+      activeDisable,
     };
   },
 };

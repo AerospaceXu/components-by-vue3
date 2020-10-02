@@ -1,6 +1,7 @@
 <template>
   <button
-    :class="['switch-background', active ? 'active' : '']"
+    class="switch-background"
+    :class="{ active: active }"
     :style="switchStyle"
     @click.prevent="setActive"
   >
@@ -37,14 +38,22 @@ export default defineComponent({
         return ['normal', 'tick'].indexOf(value) !== -1;
       },
     },
+    disable: {
+      type: Boolean,
+    },
   },
   setup(props, context) {
     const setActive = () => {
+      if (props.disable) {
+        return;
+      }
       context.emit('update:active', !props.active);
     };
     const switchStyle = computed(() => {
       return {
         transform: `scale(${props.type === 'tiny' ? 0.8 : 1})`,
+        cursor: props.disable ? 'not-allowed' : 'pointer',
+        filter: props.disable ? 'opacity(60%)' : '',
       };
     });
     return {
@@ -81,6 +90,11 @@ $padding-content: $width - $padding - $fill-radius;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 
+  &.active {
+    animation: switch-outside-animation-on ease 125ms;
+    background: $active-color;
+  }
+
   > .tick {
     width: $fill-radius;
     height: $fill-radius;
@@ -88,11 +102,6 @@ $padding-content: $width - $padding - $fill-radius;
     position: absolute;
     left: $padding + 2px;
     top: $padding;
-  }
-
-  &.active {
-    animation: switch-outside-animation-on ease 125ms;
-    background: $active-color;
   }
 
   > .switch-fill {
