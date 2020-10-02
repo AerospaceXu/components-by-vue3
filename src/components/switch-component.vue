@@ -19,18 +19,23 @@ import { defineComponent, computed } from 'vue';
 
 export default defineComponent({
   props: {
-    active: Boolean,
+    active: {
+      type: Boolean,
+      required: true,
+    },
     type: {
-      validator(value: string): boolean {
+      type: String,
+      default: 'normal',
+      validator: (value: string): boolean => {
         return ['normal', 'tiny'].indexOf(value) !== -1;
       },
-      default: 'normal',
     },
     mode: {
-      validator(value: string): boolean {
+      type: String,
+      default: 'normal',
+      validator: (value: string): boolean => {
         return ['normal', 'tick'].indexOf(value) !== -1;
       },
-      default: 'normal',
     },
   },
   setup(props, context) {
