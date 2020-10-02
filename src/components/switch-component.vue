@@ -44,7 +44,7 @@ export default defineComponent({
     };
     const switchStyle = computed(() => {
       return {
-        transform: `scale(${props.type === 'tiny' ? 0.68 : 1})`,
+        transform: `scale(${props.type === 'tiny' ? 0.8 : 1})`,
       };
     });
     return {
