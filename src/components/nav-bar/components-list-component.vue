@@ -43,15 +43,21 @@ export default {
 
 .menu {
   width: 120px;
-  padding: 8px 16px;
   background: #ffffff;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.32);
 
+  font-size: 16px;
+
   > li {
-    margin: 4px;
+    cursor: pointer;
 
     &:hover {
       background: darken(#ffffff, 25%);
+    }
+
+    > a {
+      display: block;
+      padding: 6px 16px;
     }
   }
 }
