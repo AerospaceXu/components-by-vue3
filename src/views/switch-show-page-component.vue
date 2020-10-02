@@ -1,11 +1,18 @@
 <template>
   <h3>组件使用</h3>
-  <code>
-    &lt;switch-component v-model:active=&quot;your-active-variable&quot;
-    type=&quot;button-type&quot; mode=&quot;button-mode&quot; /&gt;
-  </code>
-  <br />
   <switch-component v-model:active="activeComponent" />
+  <code-block-component>
+    &lt;switch-component
+    <br />
+    &nbsp;&nbsp;v-model:active=&quot;your-active-variable&quot;
+    <br />
+    &nbsp;&nbsp;type=&quot;button-type&quot;
+    <br />
+    &nbsp;&nbsp;mode=&quot;button-mode&quot;
+    <br />
+    /&gt;
+  </code-block-component>
+
   <div class="switch-description">
     <ul>
       <li>
@@ -40,11 +47,13 @@
 <script lang="ts">
 import { ref } from 'vue';
 
+import CodeBlockComponent from '../components/code-block-component.vue';
+
 import SwitchComponent from '../components/switch-component.vue';
 import ComponentsBlockComponent from '../components/components-block-component.vue';
 
 export default {
-  components: { SwitchComponent, ComponentsBlockComponent },
+  components: { SwitchComponent, ComponentsBlockComponent, CodeBlockComponent },
   setup() {
     const activeComponent = ref<boolean>(false);
     const activeTypeTiny = ref<boolean>(false);

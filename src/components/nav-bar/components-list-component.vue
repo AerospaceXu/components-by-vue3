@@ -46,7 +46,7 @@ export default {
   background: #ffffff;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.32);
 
-  font-size: 16px;
+  font-size: 20px;
 
   > li {
     cursor: pointer;
@@ -57,7 +57,7 @@ export default {
 
     > a {
       display: block;
-      padding: 6px 16px;
+      padding: 12px 24px;
     }
   }
 }
