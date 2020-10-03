@@ -88,7 +88,6 @@ $padding-content: $width - $padding - $fill-radius;
   background: rgba(0, 0, 0, 0.32);
 
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
 
   &.active {
     animation: switch-outside-animation-on ease 125ms;

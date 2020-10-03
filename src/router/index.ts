@@ -2,7 +2,7 @@ import { createWebHashHistory, createRouter, RouteRecordRaw } from 'vue-router';
 
 import ComponentsPageComponent from '../views/components-page-component.vue';
 import SwitchShowPageComponent from '../views/switch-show-page-component.vue';
-import ButtonComponent from '../components/button-component.vue';
+import ButtonShowPageComponent from '../views/button-show-page-component.vue';
 import DialogComponent from '../components/dialog-component.vue';
 import TabsComponent from '../components/tabs-component.vue';
 
@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
     component: ComponentsPageComponent,
     children: [
       { path: 'switch', component: SwitchShowPageComponent },
-      { path: 'button', component: ButtonComponent },
+      { path: 'button', component: ButtonShowPageComponent },
       { path: 'dialog', component: DialogComponent },
       { path: 'tabs', component: TabsComponent },
     ],
