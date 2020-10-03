@@ -1,36 +1,14 @@
 <template>
-  <button
-    class="button-wrapper"
-    @click="onClickButton"
-  >
+  <button class="button-wrapper" @click="onClickButton">
     <slot></slot>
-    <span v-if="doButtonAnimation" class="animation-circle"></span>
+    <span v-if="isAnimating" class="animation-circle"></span>
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent, Ref, ref, nextTick } from 'vue';
+import { defineComponent, ref } from 'vue';
 
-const createAnimate = (
-  animationTime: number,
-  doButtonAnimation: Ref<boolean>
-) => {
-  let timer: NodeJS.Timeout | null = null;
-  return () => {
-    if (timer) {
-      doButtonAnimation.value = false;
-      clearTimeout(timer);
-      timer = null;
-    }
-    timer = setTimeout(() => {
-      timer = null;
-      doButtonAnimation.value = false;
-    }, animationTime + 500);
-    nextTick(() => {
-      doButtonAnimation.value = true;
-    });
-  };
-};
+import { animateCreator } from '../lib/animateCreator';
 
 export default defineComponent({
   props: {
@@ -42,17 +20,17 @@ export default defineComponent({
     },
   },
   setup() {
-    const doButtonAnimation = ref<boolean>(false);
-    const animationController = createAnimate(195, doButtonAnimation);
+    const isAnimating = ref<boolean>(false);
+    const animate = animateCreator(195, isAnimating);
     const handleAnimation = () => {
-      animationController();
+      animate();
     };
     const onClickButton = () => {
       handleAnimation();
     };
     return {
       onClickButton,
-      doButtonAnimation,
+      isAnimating,
     };
   },
 });
