@@ -64,13 +64,13 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .button-wrapper.normal-button {
-  font-size: 16px;
+  font-size: 14px;
   padding: 5px 16px;
 }
 
 .button-wrapper.large-button {
-  font-size: 18px;
-  padding: 8px 22px;
+  font-size: 16px;
+  padding: 6px 20px;
 }
 
 .button-wrapper.primary-button {
@@ -93,7 +93,7 @@ export default defineComponent({
   border-radius: 8px;
   box-shadow: none;
 
-  font-size: 16px;
+  font-size: 14px;
 
   position: relative;
 

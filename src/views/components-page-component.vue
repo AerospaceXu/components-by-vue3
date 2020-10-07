@@ -28,6 +28,7 @@
       @click.stop="setMenuVisible(false)"
     />
     <div class="components-pages">
+      <h3>组件使用</h3>
       <router-view />
     </div>
   </div>
@@ -54,6 +55,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h3 {
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
 .wrapper {
   width: 88vw;
   max-width: 728px;
