@@ -90,6 +90,7 @@ export default defineComponent({
 
 .button-wrapper {
   padding: 5px 16px;
+  margin: 4px 0;
   border-radius: 8px;
   box-shadow: none;
 
