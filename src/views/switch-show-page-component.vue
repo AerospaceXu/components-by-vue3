@@ -43,8 +43,13 @@
       <li>
         <components-block-component>
           <switch-component v-model:active="activeDisable" disable />
-          <switch-component v-model:active="activeDisable" mode="tick" disable />
-        </components-block-component><switch-component v-model:active="activeDisable" />
+          <switch-component
+            v-model:active="activeDisable"
+            mode="tick"
+            disable
+          />
+        </components-block-component>
+        <switch-component v-model:active="activeDisable" />
         <p>
           <strong><code>disable?: boolean</code>属性：</strong>可选，switch
           按钮是否可选。

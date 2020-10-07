@@ -16,9 +16,9 @@
         </ul>
       </div>
     </div>
-    <button class="modal-visible-btn" @click="setMenuVisible(true)">
+    <button-component size="large" @click="setMenuVisible(true)">
       组件列表
-    </button>
+    </button-component>
     <components-list-component
       v-if="menuVisible"
       @click.stop="setMenuVisible(false)"
@@ -32,9 +32,10 @@
 <script lang="ts">
 import { ref } from 'vue';
 import ComponentsListComponent from '../components/nav-bar/components-list-component.vue';
+import ButtonComponent from '../components/button-component.vue';
 
 export default {
-  components: { ComponentsListComponent },
+  components: { ComponentsListComponent, ButtonComponent },
   setup() {
     const menuVisible = ref(false);
     const setMenuVisible = (isVisible: boolean) => {
@@ -83,21 +84,6 @@ export default {
       > li {
         list-style-type: decimal;
       }
-    }
-  }
-
-  > .modal-visible-btn {
-    padding: 8px 24px;
-    border: 0.5px solid rgba(0, 0, 0, 0.32);
-    border-radius: 12px;
-    background: #ffffff;
-
-    font-size: 20px;
-    cursor: pointer;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.54);
-      color: #ffffff;
     }
   }
 

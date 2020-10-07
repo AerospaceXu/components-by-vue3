@@ -1,5 +1,5 @@
 <template>
-  <button class="button-wrapper" @click="onClickButton">
+  <button class="button-wrapper" :class="classes[size]" @click="onClickButton">
     <slot></slot>
     <span v-if="isAnimating" class="animation-circle"></span>
   </button>
@@ -10,6 +10,11 @@ import { defineComponent, ref } from 'vue';
 
 import { animateCreator } from '../lib/animateCreator';
 
+const classes = {
+  normal: 'normal-button',
+  large: 'large-button',
+};
+
 export default defineComponent({
   props: {
     type: {
@@ -17,6 +22,11 @@ export default defineComponent({
       default: 'primary',
       validator: (value: string) =>
         ['primary', 'secondary'].indexOf(value) !== -1,
+    },
+    size: {
+      type: String,
+      default: 'primary',
+      validator: (value: string) => ['primary', 'large'].indexOf(value) !== -1,
     },
   },
   setup() {
@@ -31,23 +41,35 @@ export default defineComponent({
     return {
       onClickButton,
       isAnimating,
+      classes,
     };
   },
 });
 </script>
 
 <style lang="scss" scoped>
+.button-wrapper.normal-button {
+  font-size: 16px;
+  padding: 5px 16px;
+}
+
+.button-wrapper.large-button {
+  font-size: 18px;
+  padding: 8px 22px;
+}
+
 .button-wrapper {
   padding: 5px 16px;
   border-radius: 8px;
+  background: #007aff;
+  box-shadow: none;
+
   font-size: 16px;
   color: #ffffff;
-  background: #007aff;
 
   position: relative;
 
   transition: box-shadow 195ms ease;
-
   overflow: hidden;
 
   &:hover {
@@ -56,7 +78,6 @@ export default defineComponent({
   }
 
   > .animation-circle {
-    content: '';
     height: auto;
     width: 0;
     padding-top: 0;
