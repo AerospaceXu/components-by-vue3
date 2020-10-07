@@ -1,5 +1,9 @@
 <template>
-  <button class="button-wrapper" :class="classes[size]" @click="onClickButton">
+  <button
+    class="button-wrapper"
+    :class="[classes.sizeClasses[size], classes.typeClasses[type]]"
+    @click="onClickButton"
+  >
     <slot></slot>
     <span v-if="isAnimating" class="animation-circle"></span>
   </button>
@@ -10,9 +14,14 @@ import { defineComponent, ref } from 'vue';
 
 import { animateCreator } from '../lib/animateCreator';
 
-const classes = {
+const sizeClasses = {
   normal: 'normal-button',
   large: 'large-button',
+};
+
+const typeClasses = {
+  primary: 'primary-button',
+  secondary: 'secondary-button',
 };
 
 export default defineComponent({
@@ -25,13 +34,19 @@ export default defineComponent({
     },
     size: {
       type: String,
-      default: 'primary',
-      validator: (value: string) => ['primary', 'large'].indexOf(value) !== -1,
+      default: 'normal',
+      validator: (value: string) => ['normal', 'large'].indexOf(value) !== -1,
     },
   },
   setup() {
+    const classes = {
+      typeClasses,
+      sizeClasses,
+    };
+
     const isAnimating = ref<boolean>(false);
     const animate = animateCreator(195, isAnimating);
+
     const handleAnimation = () => {
       animate();
     };
@@ -58,14 +73,27 @@ export default defineComponent({
   padding: 8px 22px;
 }
 
+.button-wrapper.primary-button {
+  background: #007aff;
+  color: #ffffff;
+}
+
+.button-wrapper.secondary-button {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.87);
+  border: 0.5px solid rgba(0, 0, 0, 0.54);
+
+  > .animation-circle {
+    background: rgba(0, 0, 0, 0.06);
+  }
+}
+
 .button-wrapper {
   padding: 5px 16px;
   border-radius: 8px;
-  background: #007aff;
   box-shadow: none;
 
   font-size: 16px;
-  color: #ffffff;
 
   position: relative;
 

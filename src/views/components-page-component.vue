@@ -16,7 +16,11 @@
         </ul>
       </div>
     </div>
-    <button-component size="large" @click="setMenuVisible(true)">
+    <button-component
+      size="large"
+      type="secondary"
+      @click="setMenuVisible(true)"
+    >
       组件列表
     </button-component>
     <components-list-component
