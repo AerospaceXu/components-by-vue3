@@ -22,6 +22,7 @@ const sizeClasses = {
 const typeClasses = {
   primary: 'primary-button',
   secondary: 'secondary-button',
+  link: 'link-button',
 };
 
 export default defineComponent({
@@ -30,7 +31,7 @@ export default defineComponent({
       type: String,
       default: 'primary',
       validator: (value: string) =>
-        ['primary', 'secondary'].indexOf(value) !== -1,
+        ['primary', 'secondary', 'link'].indexOf(value) !== -1,
     },
     size: {
       type: String,
@@ -63,28 +64,44 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.button-wrapper.normal-button {
-  font-size: 14px;
-  padding: 5px 16px;
+.button-wrapper {
+  &.normal-button {
+    font-size: 14px;
+    padding: 5px 16px;
+  }
+
+  &.large-button {
+    font-size: 16px;
+    padding: 6px 20px;
+  }
 }
 
-.button-wrapper.large-button {
-  font-size: 16px;
-  padding: 6px 20px;
-}
+.button-wrapper {
+  &.primary-button {
+    background: #007aff;
+    color: #ffffff;
+  }
 
-.button-wrapper.primary-button {
-  background: #007aff;
-  color: #ffffff;
-}
+  &.secondary-button {
+    background: transparent;
+    color: rgba(0, 0, 0, 0.87);
+    border: 0.5px solid rgba(0, 0, 0, 0.54);
 
-.button-wrapper.secondary-button {
-  background: transparent;
-  color: rgba(0, 0, 0, 0.87);
-  border: 0.5px solid rgba(0, 0, 0, 0.54);
+    > .animation-circle {
+      background: rgba(0, 0, 0, 0.06);
+    }
+  }
 
-  > .animation-circle {
-    background: rgba(0, 0, 0, 0.06);
+  &.link-button {
+    background: transparent;
+    color: rgba(0, 0, 0, 0.87);
+    text-decoration: underline;
+
+    &:hover {
+      color: #007aff;
+      border: none;
+      box-shadow: none;
+    }
   }
 }
 

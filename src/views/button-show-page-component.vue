@@ -29,7 +29,9 @@
             >按钮的样式，目前提供三种样式，重要按钮、一般按钮、链接
           </p>
           <components-block-component>
+            <button-component type="primary">按钮</button-component>
             <button-component type="secondary">按钮</button-component>
+            <button-component type="link">按钮</button-component>
           </components-block-component>
         </li>
       </ul>
